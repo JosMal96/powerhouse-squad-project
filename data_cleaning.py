@@ -37,18 +37,57 @@ def fetch_and_clean_data():
     # Reorganize the 3 power consumption to the end of the column list 
     # Ensure all columns exist in the DataFrame
     expected_columns = [
-        'DateTime_cleaned', 'Temperature', 'Humidity', 'Wind Speed',
-        'DayOfWeek_Monday', 'DayOfWeek_Tuesday', 'DayOfWeek_Wednesday', 
-        'DayOfWeek_Thursday', 'DayOfWeek_Friday', 'DayOfWeek_Saturday', 
-        'DayOfWeek_Sunday', 'TimeOfDay_Morning', 'TimeOfDay_Afternoon', 
-        'TimeOfDay_Evening', 'TimeOfDay_Night', 
-        'Zone 1 Power Consumption', 'Zone 2  Power Consumption', 'Zone 3  Power Consumption'
+    'DateTime_cleaned', 'Temperature', 'Humidity', 'Wind Speed',
+    'DayOfWeek_Monday', 'DayOfWeek_Tuesday', 'DayOfWeek_Wednesday', 
+    'DayOfWeek_Thursday', 'DayOfWeek_Friday', 'DayOfWeek_Saturday', 
+    'DayOfWeek_Sunday', 'TimeOfDay_Morning', 'TimeOfDay_Afternoon', 
+    'TimeOfDay_Evening', 'TimeOfDay_Night' , 'general diffuse flows', 'diffuse flows', 
+    'Zone 1 Power Consumption', 'Zone 2  Power Consumption', 'Zone 3  Power Consumption'
     ]
 
     # Select only the expected columns
     tetouan_df_cleaned = tetouan_df[expected_columns]
 
+    def rename_col(pc_data_col:str):
+        """
+        Renames columns in the power consumption dataframe
     
+        Arguments : pc_data_col  - column in power comsumption dataframe
+        Returns : Str - reformatted column
+        """
+        if pc_data_col == 'DateTime_cleaned':
+            return 'DateTime' 
+        if pc_data_col == 'Temperature':
+            return 'Temp'
+        if pc_data_col == 'Wind Speed':
+            return 'Wind_Speed'
+        if 'Zone' in pc_data_col:
+            zone = pc_data_col.split('Power Consumption')[0].strip().replace(' ', '_')
+            return zone + '_PC'
+        if 'Day' in pc_data_col and '_' in pc_data_col:
+            return pc_data_col.split('_')[1]
+        return pc_data_col
+
+    tetouan_df_cleaned.columns = [rename_col(col) for col in tetouan_df_cleaned.columns]
+    
+    
+    # Convert temperature from C to F 
+    def celsius_to_fahrenheit(celsius):
+        return (celsius * 9/5) + 32
+    
+    tetouan_df_cleaned['Temp'] = tetouan_df_cleaned['Temp'].apply(celsius_to_fahrenheit)
+    
+
+    # Converting columns from boolean to int
+    columns_to_convert = ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday', 'Morning', 'Afternoon', 'Evening', 'Night']
+    for column in columns_to_convert:
+        tetouan_df_cleaned[column] = tetouan_df_cleaned[column].astype(int)
+
+    # Convert DateTime columns into months and season column
+    tetouan_df_cleaned['Month'] = tetouan_df_cleaned['DateTime'].dt.month
+    
+    columns = ['Month', 'Monday', 'Tuesday','Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday', 'Morning','Afternoon', 'Evening', 'Night', 'Temp', 'Humidity', 'Wind_Speed','general diffuse flows', 'diffuse flows', 'Zone_1_PC', 'Zone_2_PC', 'Zone_3_PC']
+    tetouan_df_cleaned = tetouan_df_cleaned[columns]
 
     return tetouan_df_cleaned
 
