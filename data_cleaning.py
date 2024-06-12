@@ -37,12 +37,12 @@ def fetch_and_clean_data():
     # Reorganize the 3 power consumption to the end of the column list 
     # Ensure all columns exist in the DataFrame
     expected_columns = [
-        'DateTime_cleaned', 'Temperature', 'Humidity', 'Wind Speed',
-        'DayOfWeek_Monday', 'DayOfWeek_Tuesday', 'DayOfWeek_Wednesday', 
-        'DayOfWeek_Thursday', 'DayOfWeek_Friday', 'DayOfWeek_Saturday', 
-        'DayOfWeek_Sunday', 'TimeOfDay_Morning', 'TimeOfDay_Afternoon', 
-        'TimeOfDay_Evening', 'TimeOfDay_Night', 
-        'Zone 1 Power Consumption', 'Zone 2  Power Consumption', 'Zone 3  Power Consumption'
+    'DateTime_cleaned', 'Temperature', 'Humidity', 'Wind Speed',
+    'DayOfWeek_Monday', 'DayOfWeek_Tuesday', 'DayOfWeek_Wednesday', 
+    'DayOfWeek_Thursday', 'DayOfWeek_Friday', 'DayOfWeek_Saturday', 
+    'DayOfWeek_Sunday', 'TimeOfDay_Morning', 'TimeOfDay_Afternoon', 
+    'TimeOfDay_Evening', 'TimeOfDay_Night' , 'general diffuse flows', 'diffuse flows', 
+    'Zone 1 Power Consumption', 'Zone 2  Power Consumption', 'Zone 3  Power Consumption'
     ]
 
     # Select only the expected columns
@@ -86,9 +86,7 @@ def fetch_and_clean_data():
     # Convert DateTime columns into months and season column
     tetouan_df_cleaned['Month'] = tetouan_df_cleaned['DateTime'].dt.month
     
-    columns = ['Month', 'Monday', 'Tuesday','Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday', 'Morning','Afternoon', 'Evening', 'Night', 'Temp', 'Humidity', 'Wind_Speed', 'Zone_1_PC', 'Zone_2_PC', 'Zone_3_PC'
-       ]
-    
+    columns = ['Month', 'Monday', 'Tuesday','Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday', 'Morning','Afternoon', 'Evening', 'Night', 'Temp', 'Humidity', 'Wind_Speed','general diffuse flows', 'diffuse flows', 'Zone_1_PC', 'Zone_2_PC', 'Zone_3_PC']
     tetouan_df_cleaned = tetouan_df_cleaned[columns]
 
     return tetouan_df_cleaned
