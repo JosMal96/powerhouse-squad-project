@@ -48,6 +48,8 @@ def fetch_and_clean_data():
     # Select only the expected columns
     tetouan_df_cleaned = tetouan_df[expected_columns]
 
+    
+
     return tetouan_df_cleaned
 
 if __name__ == "__main__":
