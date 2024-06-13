@@ -48,3 +48,7 @@ We initially considered all variables besides the targeted dependent variables a
 
 Of all the tests we ran initially, the best three were the AdaBoost Regression Model, the Random Forest Model, and the Gradient Boosting Model. 
 
+## Challenges
+
+Our main challenge was with collaborating in Visual Studio Code using the LiveShare extension. Though members of our group had used it in the past, they had not done so with a group of 5, and that seemed to strain the extension to the point of forcing us to hard-close VSC and lose valuable progress multiple times at worst, and to have to restart and rejoin the sharing session at worst. This caused our data cleaning to take much longer than expected.
+
