@@ -1,6 +1,6 @@
 # Machine Learning Group Project: Ironhack Week 7
 
-## Team Members (listed alphabetically)
+## Team Members
 
 - Hoang Le Duc
 - Raynard Flores
@@ -14,7 +14,7 @@ The purpose of this project was to apply skills gained from in-class lessons and
 
 ## Technologies
 
-Most of our work was done in Python, and we relied heavily on packages such as pandas, numpy, seaborn, matplotlib and sklearn. 
+Most of our work was done in Python, and we relied heavily on packages such as pandas, numpy, seaborn, matplotlib and sklearn. In order to access our data, we needed to install the UCIML Repo [!pip install ucimlrepo], and to run the XG Boost model we needed to install xgboost. [!pip install xgboost]
 
 ## Our Dataset
 
