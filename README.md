@@ -61,4 +61,5 @@ The predictive model we built, if given similarly comprehensive data and/or data
 Trello Board: [Trello Board](https://trello.com/b/1rFRh0YP/powerhouse-squad)
 
 Google Slide Presentation: [Powerhouse Squad](https://docs.google.com/presentation/d/1y_sWiRhllMJiLuo207LJPSRLDRtRdl9Ik0Hi7H3-k4Q/edit?usp=sharing)
+(if you can't access slides via link, it's also available in the Presentation folder)
 
