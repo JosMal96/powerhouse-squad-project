@@ -46,11 +46,15 @@ The only data engineering performed in the Machine Learning notebook (prior to b
 
 We initially considered all variables besides the targeted dependent variables as test variables. We also set our dataset to train on 80% of the data, and to test 20% of it. 
 
-Of all the tests we ran initially, the best three were the AdaBoost Regression Model, the Random Forest Model, and the Gradient Boosting Model. 
+Of all the tests we ran initially, the best three were the AdaBoost Regression Model, the Random Forest Model, and the Gradient Boosting Model. Our AdaBoost Regression Model was by far the best, yielding an r-sqared score of between 0.94 and 0.97, and yielded an MAE of as low as 835 kWh.
 
 ## Challenges
 
-Our main challenge was with collaborating in Visual Studio Code using the LiveShare extension. Though members of our group had used it in the past, they had not done so with a group of 5, and that seemed to strain the extension to the point of forcing us to hard-close VSC and lose valuable progress multiple times at worst, and to have to restart and rejoin the sharing session at worst. This caused our data cleaning to take much longer than expected.
+Our main challenge was with collaborating in Visual Studio Code using the LiveShare extension. Though members of our group had used it in the past, they had not done so with a group of 5, and that seemed to strain the extension to the point of forcing us to hard-close VSC and lose valuable progress multiple times at worst, and to have to restart and rejoin the sharing session at worst. This caused our data cleaning to take much longer than expected. 
+
+## Future Potential
+
+The predictive model we built, if given similarly comprehensive data and/or data spanning mulitple years, could be used and even made more effective in at least two significant ways. First off, it could be used to predict and even preemptively prepare for surges in power needs by inputting weather predictions (such as predicted temperature, humidity, windspeed, etc.) to establish likely levels of power usage in different zones of Tetouan City or of any other city. It could also be used, after identifying regular instances and circumstances of blackouts, to establish where power distribution methods need to be improved. 
 
 ## Links
 
